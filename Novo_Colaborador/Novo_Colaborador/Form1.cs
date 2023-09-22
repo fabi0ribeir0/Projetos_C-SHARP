@@ -26,6 +26,7 @@ namespace Novo_Colaborador
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             this.BackColor = backgroundColor;
+            lblTitulo.ForeColor = Color.FromArgb(0x08, 0x95, 0x89);
         }
     }
 }
