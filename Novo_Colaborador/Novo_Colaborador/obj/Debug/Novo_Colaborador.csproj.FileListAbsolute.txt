@@ -1,0 +1,11 @@
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\bin\Debug\Novo_Colaborador.exe.config
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\bin\Debug\Novo_Colaborador.exe
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\bin\Debug\Novo_Colaborador.pdb
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.csproj.AssemblyReference.cache
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.csproj.SuggestedBindingRedirects.cache
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.Properties.Resources.resources
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.csproj.GenerateResource.cache
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.csproj.CoreCompileInputs.cache
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.exe
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.pdb
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.frmPrincipal.resources
