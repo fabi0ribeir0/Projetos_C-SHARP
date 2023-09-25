@@ -23,6 +23,8 @@ namespace Novo_Colaborador
         
         private Color backgroundColor = Color.FromArgb(0xE7, 0xFE, 0xFB);
 
+        private string estado = "";
+
         public void limpar()
         {
             txtNome.Clear();
@@ -66,11 +68,6 @@ namespace Novo_Colaborador
             btnEnviar.BackColor = Color.FromArgb(0x00, 0x64, 0x00);
         }
 
-        private void btnEnviar_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Enviou");
-        }
-
         private void txtNome_Leave(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtNome.Text))
@@ -107,5 +104,61 @@ namespace Novo_Colaborador
             }
 
         }
+
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            RadioButton selectedRadioButton = sender as RadioButton;
+
+            if (selectedRadioButton != null && selectedRadioButton.Checked)
+            {
+                estado = selectedRadioButton.Text; // Use o texto do botão de rádio como o estado
+            }
+
+            MessageBox.Show(estado);
+
+
+            //try
+            //{
+            //    // Configurar o cliente de email SMTP
+            //    SmtpClient smtpClient = new SmtpClient("smtp.office365.com");
+            //    smtpClient.Port = 587;
+            //    smtpClient.Credentials = new System.Net.NetworkCredential("crm@medicalway.com.br", "UNS@mw1315");
+            //    smtpClient.EnableSsl = true;
+
+            //    // Criar uma mensagem de email
+            //    MailMessage mensagem = new MailMessage();
+            //    mensagem.From = new MailAddress("crm@medicalway.com.br");
+            //    mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do destinatário
+            //    //mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do segundo destinatário
+            //    //mensagem.CC.Add("rh@medicalway.com.br"); //Em cópia
+            //    //mensagem.CC.Add("vanessa@medicalway.com.br"); //Em cópia
+
+            //    mensagem.Subject = $"Novo colaborador - {txtNome}"; // Assunto do email
+            //    mensagem.Body = $"Bom dia/tarde a todos" +
+            //        $"\n @ti favor ciar acessos para novo colaborador\n" +
+            //        $"Nome:  {txtNome.Text} Função: {txtFuncao.Text} estado: " +
+            //        $"\n Sugestão de e-mail: {txtMail.Text}\n" +
+            //        $"Providenciar os equipamentos:  {itens}" +
+            //        $"\nPula linha"; // Corpo do email
+
+            //    // Anexar arquivos, se necessário
+            //    // mensagem.Attachments.Add(new Attachment("caminho/do/arquivo.pdf"));
+
+            //    // Enviar o email
+            //    smtpClient.Send(mensagem);
+
+            //    MessageBox.Show("Email enviado com sucesso!");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Ocorreu um erro ao enviar o email: " + ex.Message);
+            //}
+        }
+
     }
 }

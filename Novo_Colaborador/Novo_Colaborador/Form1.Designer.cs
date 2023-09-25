@@ -49,6 +49,8 @@
             this.txtMail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnEnviar = new System.Windows.Forms.Button();
+            this.txtSolicitado = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -251,7 +253,7 @@
             this.btnEnviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnEnviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnviar.ForeColor = System.Drawing.Color.White;
-            this.btnEnviar.Location = new System.Drawing.Point(155, 511);
+            this.btnEnviar.Location = new System.Drawing.Point(155, 568);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(145, 38);
             this.btnEnviar.TabIndex = 5;
@@ -261,12 +263,33 @@
             this.btnEnviar.MouseEnter += new System.EventHandler(this.btnEnviar_MouseEnter);
             this.btnEnviar.MouseLeave += new System.EventHandler(this.btnEnviar_MouseLeave);
             // 
+            // txtSolicitado
+            // 
+            this.txtSolicitado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSolicitado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSolicitado.Location = new System.Drawing.Point(12, 530);
+            this.txtSolicitado.Name = "txtSolicitado";
+            this.txtSolicitado.Size = new System.Drawing.Size(450, 22);
+            this.txtSolicitado.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(12, 511);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 16);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Solicitado por";
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(474, 561);
+            this.ClientSize = new System.Drawing.Size(474, 611);
+            this.Controls.Add(this.txtSolicitado);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.label5);
@@ -316,6 +339,8 @@
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.TextBox txtSolicitado;
+        private System.Windows.Forms.Label label6;
     }
 }
 
