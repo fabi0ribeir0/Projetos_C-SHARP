@@ -242,9 +242,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(9, 457);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 16);
+            this.label5.Size = new System.Drawing.Size(425, 16);
             this.label5.TabIndex = 12;
-            this.label5.Text = "E-mail";
+            this.label5.Text = "Sugestão de E-mail (pode ser alterado caso não disponível)";
             // 
             // btnEnviar
             // 
