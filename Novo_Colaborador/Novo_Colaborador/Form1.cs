@@ -23,7 +23,14 @@ namespace Novo_Colaborador
         
         private Color backgroundColor = Color.FromArgb(0xE7, 0xFE, 0xFB);
 
-        private string estado = "";
+        
+        //Variaveis
+        //********************************
+        private string estado = "Vazio";
+        private string[] itens;
+        private string comprimento;
+        private int Dia, Mes, Ano;
+        //********************************
 
         public void limpar()
         {
@@ -89,7 +96,7 @@ namespace Novo_Colaborador
 
                 if (numeroDePalavras > 1)
                 {
-                    if (arrayDePalavras[1] == "DA" || arrayDePalavras[1] == "DE" || arrayDePalavras[1] == "DO" || arrayDePalavras[1] == "DAS" || arrayDePalavras[1] == "DOS")
+                    if (arrayDePalavras[1].ToLower() == "da" || arrayDePalavras[1].ToLower() == "de" || arrayDePalavras[1].ToLower() == "do" || arrayDePalavras[1].ToLower() == "das" || arrayDePalavras[1].ToLower() == "dos")
                     {
                         mail = arrayDePalavras[0] + "." + arrayDePalavras[2];
                     }
@@ -105,60 +112,125 @@ namespace Novo_Colaborador
 
         }
 
-        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        private void rbSC_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (rbSC.Checked)
+            {
+                estado = rbSC.Text;
+            }
+        }
+
+        private void rbPR_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbPR.Checked)
+            {
+                estado = rbPR.Text;
+            }
+        }
+
+        private void rbRS_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbRS.Checked)
+            {
+                estado = rbRS.Text;
+            }
         }
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            RadioButton selectedRadioButton = sender as RadioButton;
+            DateTime dataSelecionada = dateTimePicker1.Value;
 
-            if (selectedRadioButton != null && selectedRadioButton.Checked)
+            Dia = dataSelecionada.Day;
+            Mes = dataSelecionada.Month;
+            Ano = dataSelecionada.Year;
+
+
+            // Inicializa a lista de itens selecionados
+            List<string> itensSelecionados = new List<string>();
+
+            // Verifica se cada CheckBox está marcado e adiciona o texto à lista
+            if (chbCel.Checked)
             {
-                estado = selectedRadioButton.Text; // Use o texto do botão de rádio como o estado
+                itensSelecionados.Add(chbCel.Text);
             }
 
-            MessageBox.Show(estado);
+            if (chbChip.Checked)
+            {
+                itensSelecionados.Add(chbChip.Text);
+            }
 
+            if (chbNote.Checked)
+            {
+                itensSelecionados.Add(chbNote.Text);
+            }
 
-            //try
-            //{
-            //    // Configurar o cliente de email SMTP
-            //    SmtpClient smtpClient = new SmtpClient("smtp.office365.com");
-            //    smtpClient.Port = 587;
-            //    smtpClient.Credentials = new System.Net.NetworkCredential("crm@medicalway.com.br", "UNS@mw1315");
-            //    smtpClient.EnableSsl = true;
+            if (chbTela.Checked)
+            {
+                itensSelecionados.Add(chbTela.Text);
+            }
 
-            //    // Criar uma mensagem de email
-            //    MailMessage mensagem = new MailMessage();
-            //    mensagem.From = new MailAddress("crm@medicalway.com.br");
-            //    mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do destinatário
-            //    //mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do segundo destinatário
-            //    //mensagem.CC.Add("rh@medicalway.com.br"); //Em cópia
-            //    //mensagem.CC.Add("vanessa@medicalway.com.br"); //Em cópia
+            // Converte a lista em uma array
+            itens = itensSelecionados.ToArray();
 
-            //    mensagem.Subject = $"Novo colaborador - {txtNome}"; // Assunto do email
-            //    mensagem.Body = $"Bom dia/tarde a todos" +
-            //        $"\n @ti favor ciar acessos para novo colaborador\n" +
-            //        $"Nome:  {txtNome.Text} Função: {txtFuncao.Text} estado: " +
-            //        $"\n Sugestão de e-mail: {txtMail.Text}\n" +
-            //        $"Providenciar os equipamentos:  {itens}" +
-            //        $"\nPula linha"; // Corpo do email
+            // Exibe os itens selecionados (isso pode ser personalizado conforme necessário)
+            string equipamentos = "Favor providenciar:";
 
-            //    // Anexar arquivos, se necessário
-            //    // mensagem.Attachments.Add(new Attachment("caminho/do/arquivo.pdf"));
+            if (itens.Length > 0)
+            {
+                foreach (string item in itens)
+                {
+                    equipamentos += "\n" + item;
+                }
+            }
+            else equipamentos = "Não irá precisar de equipamentos";
 
-            //    // Enviar o email
-            //    smtpClient.Send(mensagem);
+            DateTime agora = DateTime.Now;
 
-            //    MessageBox.Show("Email enviado com sucesso!");
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Ocorreu um erro ao enviar o email: " + ex.Message);
-            //}
+            if (agora.TimeOfDay < TimeSpan.Parse("12:00:00"))
+            {
+                comprimento = "Bom dia,";
+            }
+            else comprimento = "Boa tarde,";
+
+            try
+            {
+                // Configurar o cliente de email SMTP
+                SmtpClient smtpClient = new SmtpClient("smtp.office365.com");
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new System.Net.NetworkCredential("crm@medicalway.com.br", "UNS@mw1315");
+                smtpClient.EnableSsl = true;
+
+                // Criar uma mensagem de email
+                MailMessage mensagem = new MailMessage();
+                mensagem.From = new MailAddress("crm@medicalway.com.br");
+                mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do destinatário
+                //mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do segundo destinatário
+                //mensagem.CC.Add("rh@medicalway.com.br"); //Em cópia
+                //mensagem.CC.Add("recepcao@medicalway.com.br"); //Em cópia
+
+                mensagem.Subject = $"Novo colaborador - {txtNome}"; // Assunto do email
+                mensagem.Body = $"{comprimento}\n" +
+                    $"\nTI favor ciar acessos para novo colaborador" +
+                    $"\nInicio: dia {Dia} de {Mes} de {Ano}"+
+                    $"\nNome: {txtNome.Text}"+
+                    $"\nFunção: {txtFuncao.Text}" + 
+                    $"\nEstado: {estado}" +
+                    $"\nSugestão de e-mail: {txtMail.Text}" + $"\n" +
+                    $"{equipamentos}" +
+                    $"\n\nAtt\n{txtSolicitado.Text}"; // Corpo do email
+
+                // Anexar arquivos, se necessário
+                // mensagem.Attachments.Add(new Attachment("caminho/do/arquivo.pdf"));
+
+                // Enviar o email
+                smtpClient.Send(mensagem);
+
+                MessageBox.Show("Email enviado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao enviar o email: " + ex.Message);
+            }
         }
-
     }
 }

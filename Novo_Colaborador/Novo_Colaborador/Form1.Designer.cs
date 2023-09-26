@@ -37,10 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtFuncao = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.rbRS = new System.Windows.Forms.RadioButton();
             this.rbSC = new System.Windows.Forms.RadioButton();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.chbTela = new System.Windows.Forms.CheckBox();
             this.chbCel = new System.Windows.Forms.CheckBox();
             this.chbNote = new System.Windows.Forms.CheckBox();
@@ -51,16 +49,16 @@
             this.btnEnviar = new System.Windows.Forms.Button();
             this.txtSolicitado = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Eras Bold ITC", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(82, 161);
+            this.lblTitulo.Location = new System.Drawing.Point(82, 127);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(307, 36);
             this.lblTitulo.TabIndex = 0;
@@ -71,7 +69,7 @@
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = global::Novo_Colaborador.Properties.Resources.logo_medicalway;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(450, 111);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -82,7 +80,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 206);
+            this.label1.Location = new System.Drawing.Point(9, 233);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 16);
             this.label1.TabIndex = 2;
@@ -90,9 +88,8 @@
             // 
             // txtNome
             // 
-            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(12, 225);
+            this.txtNome.Location = new System.Drawing.Point(12, 252);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(450, 22);
             this.txtNome.TabIndex = 0;
@@ -101,20 +98,19 @@
             // rbPR
             // 
             this.rbPR.AutoSize = true;
-            this.rbPR.Checked = true;
-            this.rbPR.Location = new System.Drawing.Point(6, 8);
+            this.rbPR.Location = new System.Drawing.Point(12, 358);
             this.rbPR.Name = "rbPR";
             this.rbPR.Size = new System.Drawing.Size(59, 17);
-            this.rbPR.TabIndex = 0;
-            this.rbPR.TabStop = true;
+            this.rbPR.TabIndex = 2;
             this.rbPR.Text = "Paraná";
             this.rbPR.UseVisualStyleBackColor = true;
+            this.rbPR.CheckedChanged += new System.EventHandler(this.rbPR_CheckedChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 263);
+            this.label2.Location = new System.Drawing.Point(9, 281);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 16);
             this.label2.TabIndex = 6;
@@ -122,9 +118,8 @@
             // 
             // txtFuncao
             // 
-            this.txtFuncao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtFuncao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFuncao.Location = new System.Drawing.Point(12, 282);
+            this.txtFuncao.Location = new System.Drawing.Point(12, 300);
             this.txtFuncao.Name = "txtFuncao";
             this.txtFuncao.Size = new System.Drawing.Size(450, 22);
             this.txtFuncao.TabIndex = 1;
@@ -133,90 +128,71 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 319);
+            this.label3.Location = new System.Drawing.Point(9, 331);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 16);
             this.label3.TabIndex = 8;
             this.label3.Text = "Estado";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.rbRS);
-            this.panel1.Controls.Add(this.rbPR);
-            this.panel1.Controls.Add(this.rbSC);
-            this.panel1.Location = new System.Drawing.Point(12, 338);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 100);
-            this.panel1.TabIndex = 2;
-            // 
             // rbRS
             // 
             this.rbRS.AutoSize = true;
-            this.rbRS.Location = new System.Drawing.Point(6, 72);
+            this.rbRS.Location = new System.Drawing.Point(12, 422);
             this.rbRS.Name = "rbRS";
             this.rbRS.Size = new System.Drawing.Size(112, 17);
-            this.rbRS.TabIndex = 2;
+            this.rbRS.TabIndex = 4;
             this.rbRS.Text = "Rio Grande do Sul";
             this.rbRS.UseVisualStyleBackColor = true;
+            this.rbRS.CheckedChanged += new System.EventHandler(this.rbRS_CheckedChanged);
             // 
             // rbSC
             // 
             this.rbSC.AutoSize = true;
-            this.rbSC.Location = new System.Drawing.Point(6, 40);
+            this.rbSC.Location = new System.Drawing.Point(12, 390);
             this.rbSC.Name = "rbSC";
             this.rbSC.Size = new System.Drawing.Size(95, 17);
-            this.rbSC.TabIndex = 1;
+            this.rbSC.TabIndex = 3;
             this.rbSC.Text = "Santa Catarina";
             this.rbSC.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.chbTela);
-            this.panel2.Controls.Add(this.chbCel);
-            this.panel2.Controls.Add(this.chbNote);
-            this.panel2.Controls.Add(this.chbChip);
-            this.panel2.Location = new System.Drawing.Point(256, 338);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(206, 100);
-            this.panel2.TabIndex = 3;
+            this.rbSC.CheckedChanged += new System.EventHandler(this.rbSC_CheckedChanged);
             // 
             // chbTela
             // 
             this.chbTela.AutoSize = true;
-            this.chbTela.Location = new System.Drawing.Point(6, 80);
+            this.chbTela.Location = new System.Drawing.Point(262, 431);
             this.chbTela.Name = "chbTela";
             this.chbTela.Size = new System.Drawing.Size(93, 17);
-            this.chbTela.TabIndex = 3;
+            this.chbTela.TabIndex = 8;
             this.chbTela.Text = "Segunda Tela";
             this.chbTela.UseVisualStyleBackColor = true;
             // 
             // chbCel
             // 
             this.chbCel.AutoSize = true;
-            this.chbCel.Location = new System.Drawing.Point(6, 56);
+            this.chbCel.Location = new System.Drawing.Point(262, 407);
             this.chbCel.Name = "chbCel";
             this.chbCel.Size = new System.Drawing.Size(58, 17);
-            this.chbCel.TabIndex = 2;
+            this.chbCel.TabIndex = 7;
             this.chbCel.Text = "Celular";
             this.chbCel.UseVisualStyleBackColor = true;
             // 
             // chbNote
             // 
             this.chbNote.AutoSize = true;
-            this.chbNote.Location = new System.Drawing.Point(6, 8);
+            this.chbNote.Location = new System.Drawing.Point(262, 359);
             this.chbNote.Name = "chbNote";
             this.chbNote.Size = new System.Drawing.Size(73, 17);
-            this.chbNote.TabIndex = 0;
+            this.chbNote.TabIndex = 5;
             this.chbNote.Text = "Notebook";
             this.chbNote.UseVisualStyleBackColor = true;
             // 
             // chbChip
             // 
             this.chbChip.AutoSize = true;
-            this.chbChip.Location = new System.Drawing.Point(6, 32);
+            this.chbChip.Location = new System.Drawing.Point(262, 383);
             this.chbChip.Name = "chbChip";
             this.chbChip.Size = new System.Drawing.Size(47, 17);
-            this.chbChip.TabIndex = 1;
+            this.chbChip.TabIndex = 6;
             this.chbChip.Text = "Chip";
             this.chbChip.UseVisualStyleBackColor = true;
             // 
@@ -224,7 +200,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(259, 319);
+            this.label4.Location = new System.Drawing.Point(259, 331);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 16);
             this.label4.TabIndex = 11;
@@ -236,7 +212,7 @@
             this.txtMail.Location = new System.Drawing.Point(12, 476);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(450, 20);
-            this.txtMail.TabIndex = 4;
+            this.txtMail.TabIndex = 9;
             // 
             // label5
             // 
@@ -256,7 +232,7 @@
             this.btnEnviar.Location = new System.Drawing.Point(155, 568);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(145, 38);
-            this.btnEnviar.TabIndex = 5;
+            this.btnEnviar.TabIndex = 11;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = false;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
@@ -265,12 +241,11 @@
             // 
             // txtSolicitado
             // 
-            this.txtSolicitado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSolicitado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSolicitado.Location = new System.Drawing.Point(12, 530);
             this.txtSolicitado.Name = "txtSolicitado";
             this.txtSolicitado.Size = new System.Drawing.Size(450, 22);
-            this.txtSolicitado.TabIndex = 13;
+            this.txtSolicitado.TabIndex = 10;
             // 
             // label6
             // 
@@ -282,20 +257,44 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Solicitado por";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 197);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(219, 20);
+            this.dateTimePicker1.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(9, 178);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(103, 16);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Data de inicio";
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(474, 611);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.chbTela);
+            this.Controls.Add(this.rbRS);
+            this.Controls.Add(this.chbCel);
             this.Controls.Add(this.txtSolicitado);
+            this.Controls.Add(this.chbNote);
+            this.Controls.Add(this.chbChip);
+            this.Controls.Add(this.rbPR);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.rbSC);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtFuncao);
             this.Controls.Add(this.label2);
@@ -308,10 +307,6 @@
             this.Text = "Formulário";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,10 +322,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFuncao;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton rbSC;
         private System.Windows.Forms.RadioButton rbRS;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chbNote;
         private System.Windows.Forms.CheckBox chbChip;
@@ -341,6 +334,8 @@
         private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.TextBox txtSolicitado;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label7;
     }
 }
 
