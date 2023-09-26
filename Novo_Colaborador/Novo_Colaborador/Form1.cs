@@ -179,7 +179,7 @@ namespace Novo_Colaborador
             {
                 foreach (string item in itens)
                 {
-                    equipamentos += "\n" + item;
+                    equipamentos += "<br>" + "<strong style=\"font-size: 16px;\">"+item+"</strong>";
                 }
             }
             else equipamentos = "Não irá precisar de equipamentos";
@@ -208,16 +208,35 @@ namespace Novo_Colaborador
                 //mensagem.CC.Add("rh@medicalway.com.br"); //Em cópia
                 //mensagem.CC.Add("recepcao@medicalway.com.br"); //Em cópia
 
-                mensagem.Subject = $"Novo colaborador - {txtNome}"; // Assunto do email
-                mensagem.Body = $"{comprimento}\n" +
-                    $"\nTI favor ciar acessos para novo colaborador" +
-                    $"\nInicio: dia {Dia} de {Mes} de {Ano}"+
-                    $"\nNome: {txtNome.Text}"+
-                    $"\nFunção: {txtFuncao.Text}" + 
-                    $"\nEstado: {estado}" +
-                    $"\nSugestão de e-mail: {txtMail.Text}" + $"\n" +
-                    $"{equipamentos}" +
-                    $"\n\nAtt\n{txtSolicitado.Text}"; // Corpo do email
+
+                mensagem.Subject = $"Novo colaborador - {txtNome.Text}"; // Assunto do email
+                mensagem.IsBodyHtml = true; // Definir a mensagem como HTML
+                mensagem.Body = $@"
+                    <html>
+                    <body <P style=""font-family: 'Arial';"">>
+                        <P><strong style=""font-size: 14px;"">{comprimento}</strong></P>
+                        <p>TI favor ciar acessos para novo colaborador</p>
+                        <p>Início: dia <strong style=""font-size: 16px;"">{Dia}</strong> de <strong>{Mes}</strong> de <strong>{Ano}</strong></p>
+                        <p>Nome: <strong style=""font-size: 16px;"">{txtNome.Text}</strong></p>
+                        <p>Função: <strong style=""font-size: 16px;"">{txtFuncao.Text}</strong></p>
+                        <p>Estado: <strong style=""font-size: 16px;"">{estado}</strong></p>
+                        <p>Sugestão de e-mail: <strong style=""font-size: 16px;"">{txtMail.Text}</strong></p>
+                        <p>{equipamentos}</p>
+                        <p>Att</p>
+                        <p>{txtSolicitado.Text}</p>
+                    </body>
+                    </html>";
+
+
+                //$"{comprimento}\n" +
+                //$"\nTI favor ciar acessos para novo colaborador" +
+                //$"\nInicio: dia {Dia} de {Mes} de {Ano}"+
+                //$"\nNome: {txtNome.Text}"+
+                //$"\nFunção: {txtFuncao.Text}" + 
+                //$"\nEstado: {estado}" +
+                //$"\nSugestão de e-mail: {txtMail.Text}" + $"\n" +
+                //$"{equipamentos}" +
+                //$"\n\nAtt\n{txtSolicitado.Text}"; // Corpo do email
 
                 // Anexar arquivos, se necessário
                 // mensagem.Attachments.Add(new Attachment("caminho/do/arquivo.pdf"));

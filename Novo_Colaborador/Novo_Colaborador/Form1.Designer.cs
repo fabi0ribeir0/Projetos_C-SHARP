@@ -92,7 +92,7 @@
             this.txtNome.Location = new System.Drawing.Point(12, 252);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(450, 22);
-            this.txtNome.TabIndex = 0;
+            this.txtNome.TabIndex = 1;
             this.txtNome.Leave += new System.EventHandler(this.txtNome_Leave);
             // 
             // rbPR
@@ -101,7 +101,7 @@
             this.rbPR.Location = new System.Drawing.Point(12, 358);
             this.rbPR.Name = "rbPR";
             this.rbPR.Size = new System.Drawing.Size(59, 17);
-            this.rbPR.TabIndex = 2;
+            this.rbPR.TabIndex = 3;
             this.rbPR.Text = "Paraná";
             this.rbPR.UseVisualStyleBackColor = true;
             this.rbPR.CheckedChanged += new System.EventHandler(this.rbPR_CheckedChanged);
@@ -122,7 +122,7 @@
             this.txtFuncao.Location = new System.Drawing.Point(12, 300);
             this.txtFuncao.Name = "txtFuncao";
             this.txtFuncao.Size = new System.Drawing.Size(450, 22);
-            this.txtFuncao.TabIndex = 1;
+            this.txtFuncao.TabIndex = 2;
             // 
             // label3
             // 
@@ -140,7 +140,7 @@
             this.rbRS.Location = new System.Drawing.Point(12, 422);
             this.rbRS.Name = "rbRS";
             this.rbRS.Size = new System.Drawing.Size(112, 17);
-            this.rbRS.TabIndex = 4;
+            this.rbRS.TabIndex = 5;
             this.rbRS.Text = "Rio Grande do Sul";
             this.rbRS.UseVisualStyleBackColor = true;
             this.rbRS.CheckedChanged += new System.EventHandler(this.rbRS_CheckedChanged);
@@ -151,7 +151,7 @@
             this.rbSC.Location = new System.Drawing.Point(12, 390);
             this.rbSC.Name = "rbSC";
             this.rbSC.Size = new System.Drawing.Size(95, 17);
-            this.rbSC.TabIndex = 3;
+            this.rbSC.TabIndex = 4;
             this.rbSC.Text = "Santa Catarina";
             this.rbSC.UseVisualStyleBackColor = true;
             this.rbSC.CheckedChanged += new System.EventHandler(this.rbSC_CheckedChanged);
@@ -162,7 +162,7 @@
             this.chbTela.Location = new System.Drawing.Point(262, 431);
             this.chbTela.Name = "chbTela";
             this.chbTela.Size = new System.Drawing.Size(93, 17);
-            this.chbTela.TabIndex = 8;
+            this.chbTela.TabIndex = 9;
             this.chbTela.Text = "Segunda Tela";
             this.chbTela.UseVisualStyleBackColor = true;
             // 
@@ -172,7 +172,7 @@
             this.chbCel.Location = new System.Drawing.Point(262, 407);
             this.chbCel.Name = "chbCel";
             this.chbCel.Size = new System.Drawing.Size(58, 17);
-            this.chbCel.TabIndex = 7;
+            this.chbCel.TabIndex = 8;
             this.chbCel.Text = "Celular";
             this.chbCel.UseVisualStyleBackColor = true;
             // 
@@ -182,7 +182,7 @@
             this.chbNote.Location = new System.Drawing.Point(262, 359);
             this.chbNote.Name = "chbNote";
             this.chbNote.Size = new System.Drawing.Size(73, 17);
-            this.chbNote.TabIndex = 5;
+            this.chbNote.TabIndex = 6;
             this.chbNote.Text = "Notebook";
             this.chbNote.UseVisualStyleBackColor = true;
             // 
@@ -192,7 +192,7 @@
             this.chbChip.Location = new System.Drawing.Point(262, 383);
             this.chbChip.Name = "chbChip";
             this.chbChip.Size = new System.Drawing.Size(47, 17);
-            this.chbChip.TabIndex = 6;
+            this.chbChip.TabIndex = 7;
             this.chbChip.Text = "Chip";
             this.chbChip.UseVisualStyleBackColor = true;
             // 
@@ -212,7 +212,7 @@
             this.txtMail.Location = new System.Drawing.Point(12, 476);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(450, 20);
-            this.txtMail.TabIndex = 9;
+            this.txtMail.TabIndex = 10;
             // 
             // label5
             // 
@@ -232,7 +232,7 @@
             this.btnEnviar.Location = new System.Drawing.Point(155, 568);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(145, 38);
-            this.btnEnviar.TabIndex = 11;
+            this.btnEnviar.TabIndex = 12;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = false;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
@@ -245,7 +245,7 @@
             this.txtSolicitado.Location = new System.Drawing.Point(12, 530);
             this.txtSolicitado.Name = "txtSolicitado";
             this.txtSolicitado.Size = new System.Drawing.Size(450, 22);
-            this.txtSolicitado.TabIndex = 10;
+            this.txtSolicitado.TabIndex = 11;
             // 
             // label6
             // 
@@ -262,7 +262,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(12, 197);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(219, 20);
-            this.dateTimePicker1.TabIndex = 15;
+            this.dateTimePicker1.TabIndex = 0;
             // 
             // label7
             // 
