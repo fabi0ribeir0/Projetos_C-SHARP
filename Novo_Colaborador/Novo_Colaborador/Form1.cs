@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,7 +30,11 @@ namespace Novo_Colaborador
         private string estado = "Vazio";
         private string[] itens;
         private string comprimento;
+        private int estadoDB;
         private int Dia, Mes, Ano;
+        Conexao conect = new Conexao();
+        string sql;
+        MySqlCommand cmd;
         //********************************
 
         public void limpar()
@@ -110,7 +115,6 @@ namespace Novo_Colaborador
 
                 txtMail.Text = resultado + "@medicalway.com.br";
             }
-
         }
 
         private void rbSC_CheckedChanged(object sender, EventArgs e)
@@ -118,6 +122,7 @@ namespace Novo_Colaborador
             if (rbSC.Checked)
             {
                 estado = rbSC.Text;
+                estadoDB = 2;
             }
         }
 
@@ -126,6 +131,7 @@ namespace Novo_Colaborador
             if (rbPR.Checked)
             {
                 estado = rbPR.Text;
+                estadoDB = 1;
             }
         }
 
@@ -134,6 +140,7 @@ namespace Novo_Colaborador
             if (rbRS.Checked)
             {
                 estado = rbRS.Text;
+                estadoDB = 3;
             }
         }
 
@@ -175,15 +182,28 @@ namespace Novo_Colaborador
 
             // Exibe os itens selecionados (isso pode ser personalizado conforme necessário)
             string equipamentos = "Favor providenciar:";
+            string equipDB = "";
 
             if (itens.Length > 0)
             {
                 foreach (string item in itens)
                 {
-                    equipamentos += "<br>" + "<strong style=\"font-size: 16px;\">"+item+"</strong>";
+                    equipamentos += "<br>" + "<strong style=\"font-size: 16px;\">" + item + "</strong>";
+                    equipDB += item+", ";
                 }
             }
-            else equipamentos = "Não irá precisar de equipamentos";
+            else
+            {
+                equipamentos = "Não irá precisar de equipamentos";
+                equipDB = "Não solicitado";
+            }
+
+            // Verifique se a string equipDB não está vazia antes de tentar remover o último caractere
+            if (!string.IsNullOrEmpty(equipDB))
+            {
+                // Use Substring para criar uma nova string sem o último caractere
+                equipDB = equipDB.Substring(0, equipDB.Length - 2); // Subtrai 2 para excluir a vírgula e o espaço final
+            }
 
             DateTime agora = DateTime.Now;
 
@@ -193,61 +213,83 @@ namespace Novo_Colaborador
             }
             else comprimento = "Boa tarde,";
 
-            try
+            conect.AbrirConexao();
+
+            sql = "SELECT COUNT(*) FROM Contratados WHERE nome = @nome";
+            cmd = new MySqlCommand(sql, conect.con);
+            cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            if (count > 0)
             {
-                // Configurar o cliente de email SMTP
-                SmtpClient smtpClient = new SmtpClient("smtp.office365.com");
-                smtpClient.Port = 587;
-                smtpClient.Credentials = new System.Net.NetworkCredential("crm@medicalway.com.br", "UNS@mw1315");
-                smtpClient.EnableSsl = true;
-
-                // Criar uma mensagem de email
-                MailMessage mensagem = new MailMessage();
-                mensagem.From = new MailAddress("crm@medicalway.com.br");
-                mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do destinatário
-                //mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do segundo destinatário
-                //mensagem.CC.Add("rh@medicalway.com.br"); //Em cópia
-                //mensagem.CC.Add("recepcao@medicalway.com.br"); //Em cópia
-
-
-                mensagem.Subject = $"Novo colaborador - {txtNome.Text}"; // Assunto do email
-                mensagem.IsBodyHtml = true; // Definir a mensagem como HTML
-                mensagem.Body = $@"
-                    <html>
-                    <body <P style=""font-family: 'Arial';"">>
-                        <P><strong style=""font-size: 14px;"">{comprimento}</strong></P>
-                        <p>TI favor ciar acessos para novo colaborador</p>
-                        <p>Início: dia <strong style=""font-size: 16px;"">{Dia}</strong> de <strong>{Mes}</strong> de <strong>{Ano}</strong></p>
-                        <p>Nome: <strong style=""font-size: 16px;"">{txtNome.Text}</strong></p>
-                        <p>Função: <strong style=""font-size: 16px;"">{txtFuncao.Text}</strong></p>
-                        <p>Estado: <strong style=""font-size: 16px;"">{estado}</strong></p>
-                        <p>Sugestão de e-mail: <strong style=""font-size: 16px;"">{txtMail.Text}</strong></p>
-                        <p>{equipamentos}</p>
-                        <p>Att</p>
-                        <p>{txtSolicitado.Text}</p>
-                    </body>
-                    </html>";
-
-                // Anexar arquivos, se necessário
-                // mensagem.Attachments.Add(new Attachment("caminho/do/arquivo.pdf"));
-
-                // Enviar o email
-                smtpClient.Send(mensagem);
-
-                MessageBox.Show("Email enviado com sucesso!");
-
-                DialogResult resposta = MessageBox.Show("Solicitar outro colaborador?", "Pergunta", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-
-                if (resposta == DialogResult.Yes)
-                {
-                    limpar();
-                }
-                else this.Close();
+                MessageBox.Show($"O Nome {txtNome.Text} já foi cadastrado");
+                return;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocorreu um erro ao enviar o email: " + ex.Message);
-            }
+            
+            sql = "INSERT INTO Contratados (nome, funcao, estado, equipamentos, solicitante) VALUES (@nome, @funcao, @estado, @equipamentos, @solicitante)";
+            cmd = new MySqlCommand(sql, conect.con);
+            cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+            cmd.Parameters.AddWithValue("@funcao", txtFuncao.Text);
+            cmd.Parameters.AddWithValue("@estado", estadoDB);
+            cmd.Parameters.AddWithValue("@equipamentos", equipDB);
+            cmd.Parameters.AddWithValue("@solicitante", txtSolicitado.Text);
+            cmd.ExecuteNonQuery();
+            conect.FecharConexao();
+
+            //try
+            //{
+            //    // Configurar o cliente de email SMTP
+            //    SmtpClient smtpClient = new SmtpClient("smtp.office365.com");
+            //    smtpClient.Port = 587;
+            //    smtpClient.Credentials = new System.Net.NetworkCredential("crm@medicalway.com.br", "UNS@mw1315");
+            //    smtpClient.EnableSsl = true;
+
+            //    // Criar uma mensagem de email
+            //    MailMessage mensagem = new MailMessage();
+            //    mensagem.From = new MailAddress("crm@medicalway.com.br");
+            //    mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do destinatário
+            //    //mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do segundo destinatário
+            //    //mensagem.CC.Add("rh@medicalway.com.br"); //Em cópia
+            //    //mensagem.CC.Add("recepcao@medicalway.com.br"); //Em cópia
+
+
+            //    mensagem.Subject = $"Novo colaborador - {txtNome.Text}"; // Assunto do email
+            //    mensagem.IsBodyHtml = true; // Definir a mensagem como HTML
+            //    mensagem.Body = $@"
+            //        <html>
+            //        <body <P style=""font-family: 'Arial';"">>
+            //            <P><strong style=""font-size: 14px;"">{comprimento}</strong></P>
+            //            <p>TI favor ciar acessos para novo colaborador</p>
+            //            <p>Início: dia <strong style=""font-size: 16px;"">{Dia}</strong> de <strong>{Mes}</strong> de <strong>{Ano}</strong></p>
+            //            <p>Nome: <strong style=""font-size: 16px;"">{txtNome.Text}</strong></p>
+            //            <p>Função: <strong style=""font-size: 16px;"">{txtFuncao.Text}</strong></p>
+            //            <p>Estado: <strong style=""font-size: 16px;"">{estado}</strong></p>
+            //            <p>Sugestão de e-mail: <strong style=""font-size: 16px;"">{txtMail.Text}</strong></p>
+            //            <p>{equipamentos}</p>
+            //            <p>Att</p>
+            //            <p>{txtSolicitado.Text}</p>
+            //        </body>
+            //        </html>";
+
+            //    // Anexar arquivos, se necessário
+            //    // mensagem.Attachments.Add(new Attachment("caminho/do/arquivo.pdf"));
+
+            //    // Enviar o email
+            //    smtpClient.Send(mensagem);
+
+            //    MessageBox.Show("Email enviado com sucesso!");
+
+            //    DialogResult resposta = MessageBox.Show("Solicitar outro colaborador?", "Pergunta", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
+            //    if (resposta == DialogResult.Yes)
+            //    {
+            //        limpar();
+            //    }
+            //    else this.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Ocorreu um erro ao enviar o email: " + ex.Message);
+            //}
         }
     }
 }

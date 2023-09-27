@@ -9,3 +9,10 @@ C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colabora
 C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.exe
 C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.pdb
 C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.frmPrincipal.resources
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\bin\Debug\MySql.Data.dll
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\bin\Debug\System.Memory.dll
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\bin\Debug\System.Buffers.dll
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\bin\Debug\MySql.Data.xml
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.csproj.CopyComplete
