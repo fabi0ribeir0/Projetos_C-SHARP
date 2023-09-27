@@ -37,6 +37,7 @@ namespace Novo_Colaborador
             txtNome.Clear();
             txtFuncao.Clear();
             txtMail.Clear();
+            txtSolicitado.Clear();
             chbCel.Checked = false;
             chbChip.Checked = false;
             chbNote.Checked = false;
@@ -227,17 +228,6 @@ namespace Novo_Colaborador
                     </body>
                     </html>";
 
-
-                //$"{comprimento}\n" +
-                //$"\nTI favor ciar acessos para novo colaborador" +
-                //$"\nInicio: dia {Dia} de {Mes} de {Ano}"+
-                //$"\nNome: {txtNome.Text}"+
-                //$"\nFunção: {txtFuncao.Text}" + 
-                //$"\nEstado: {estado}" +
-                //$"\nSugestão de e-mail: {txtMail.Text}" + $"\n" +
-                //$"{equipamentos}" +
-                //$"\n\nAtt\n{txtSolicitado.Text}"; // Corpo do email
-
                 // Anexar arquivos, se necessário
                 // mensagem.Attachments.Add(new Attachment("caminho/do/arquivo.pdf"));
 
@@ -245,6 +235,14 @@ namespace Novo_Colaborador
                 smtpClient.Send(mensagem);
 
                 MessageBox.Show("Email enviado com sucesso!");
+
+                DialogResult resposta = MessageBox.Show("Solicitar outro colaborador?", "Pergunta", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
+                if (resposta == DialogResult.Yes)
+                {
+                    limpar();
+                }
+                else this.Close();
             }
             catch (Exception ex)
             {
