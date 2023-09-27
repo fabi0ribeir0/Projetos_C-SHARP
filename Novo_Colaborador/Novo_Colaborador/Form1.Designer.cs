@@ -51,6 +51,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnProc = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -229,7 +230,7 @@
             this.btnEnviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnEnviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnviar.ForeColor = System.Drawing.Color.White;
-            this.btnEnviar.Location = new System.Drawing.Point(155, 568);
+            this.btnEnviar.Location = new System.Drawing.Point(165, 561);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(145, 38);
             this.btnEnviar.TabIndex = 12;
@@ -274,12 +275,27 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "Data de inicio";
             // 
+            // btnProc
+            // 
+            this.btnProc.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnProc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProc.ForeColor = System.Drawing.Color.White;
+            this.btnProc.Location = new System.Drawing.Point(262, 189);
+            this.btnProc.Name = "btnProc";
+            this.btnProc.Size = new System.Drawing.Size(200, 38);
+            this.btnProc.TabIndex = 17;
+            this.btnProc.Text = "Procurar Solicitações";
+            this.btnProc.UseVisualStyleBackColor = false;
+            this.btnProc.MouseEnter += new System.EventHandler(this.btnProc_MouseEnter);
+            this.btnProc.MouseLeave += new System.EventHandler(this.btnProc_MouseLeave);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(474, 611);
+            this.Controls.Add(this.btnProc);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.chbTela);
@@ -336,6 +352,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnProc;
     }
 }
 

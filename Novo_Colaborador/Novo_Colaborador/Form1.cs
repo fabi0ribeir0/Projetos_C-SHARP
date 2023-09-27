@@ -135,6 +135,18 @@ namespace Novo_Colaborador
             }
         }
 
+        private void btnProc_MouseEnter(object sender, EventArgs e)
+        {
+            btnProc.BackColor = Color.White;
+            btnProc.ForeColor = Color.DarkBlue;
+        }
+
+        private void btnProc_MouseLeave(object sender, EventArgs e)
+        {
+            btnProc.ForeColor = Color.White;
+            btnProc.BackColor = Color.DarkBlue;
+        }
+
         private void rbRS_CheckedChanged(object sender, EventArgs e)
         {
             if (rbRS.Checked)
@@ -146,6 +158,12 @@ namespace Novo_Colaborador
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(txtNome.Text) || String.IsNullOrEmpty(txtFuncao.Text) || String.IsNullOrEmpty(txtSolicitado.Text))
+            {
+                MessageBox.Show("Porfavor preencha os campos");
+                return;
+            }            
+            
             DateTime dataSelecionada = dateTimePicker1.Value;
 
             Dia = dataSelecionada.Day;
@@ -195,7 +213,7 @@ namespace Novo_Colaborador
             else
             {
                 equipamentos = "Não irá precisar de equipamentos";
-                equipDB = "Não solicitado";
+                equipDB = "Não solicitado,,";
             }
 
             // Verifique se a string equipDB não está vazia antes de tentar remover o último caractere
