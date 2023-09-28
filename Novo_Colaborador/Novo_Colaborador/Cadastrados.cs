@@ -91,5 +91,29 @@ namespace Novo_Colaborador
                 }
             }
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string textoBusca = txtBusca.Text.Trim(); // Obtém o texto inserido no TextBox
+            if (string.IsNullOrEmpty(textoBusca))
+            {
+                // Se o campo de busca estiver vazio, exiba todos os registros
+                ListarGD();
+            }
+            else
+            {
+                // Filtra a DataGridView com base no texto de busca (no exemplo, filtramos pela coluna "Nome")
+                BindingSource bs = new BindingSource();
+                bs.DataSource = grid.DataSource;
+                bs.Filter = "Nome LIKE '%" + textoBusca + "%'";
+                grid.DataSource = bs;
+            }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txtBusca.Clear();
+            ListarGD();
+        }
     }
 }

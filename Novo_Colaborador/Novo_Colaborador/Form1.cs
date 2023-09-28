@@ -251,11 +251,11 @@ namespace Novo_Colaborador
             
             sql = "INSERT INTO Contratados (nome, funcao, estado, equipamentos, solicitante) VALUES (@nome, @funcao, @estado, @equipamentos, @solicitante)";
             cmd = new MySqlCommand(sql, conect.con);
-            cmd.Parameters.AddWithValue("@nome", txtNome.Text);
-            cmd.Parameters.AddWithValue("@funcao", txtFuncao.Text);
+            cmd.Parameters.AddWithValue("@nome", RemoverAcentos(txtNome.Text));
+            cmd.Parameters.AddWithValue("@funcao", RemoverAcentos(txtFuncao.Text));
             cmd.Parameters.AddWithValue("@estado", estadoDB);
             cmd.Parameters.AddWithValue("@equipamentos", equipDB);
-            cmd.Parameters.AddWithValue("@solicitante", txtSolicitado.Text);
+            cmd.Parameters.AddWithValue("@solicitante", RemoverAcentos(txtSolicitado.Text));
             cmd.ExecuteNonQuery();
             conect.FecharConexao();
 
