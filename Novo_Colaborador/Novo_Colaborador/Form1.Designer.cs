@@ -286,6 +286,7 @@
             this.btnProc.TabIndex = 17;
             this.btnProc.Text = "Procurar Solicitações";
             this.btnProc.UseVisualStyleBackColor = false;
+            this.btnProc.Click += new System.EventHandler(this.btnProc_Click);
             this.btnProc.MouseEnter += new System.EventHandler(this.btnProc_MouseEnter);
             this.btnProc.MouseLeave += new System.EventHandler(this.btnProc_MouseLeave);
             // 

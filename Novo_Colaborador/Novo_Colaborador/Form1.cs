@@ -147,6 +147,11 @@ namespace Novo_Colaborador
             btnProc.BackColor = Color.DarkBlue;
         }
 
+        private void btnProc_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void rbRS_CheckedChanged(object sender, EventArgs e)
         {
             if (rbRS.Checked)
