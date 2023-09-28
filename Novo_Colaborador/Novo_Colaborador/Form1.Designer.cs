@@ -320,6 +320,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblTitulo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(490, 650);
+            this.MinimumSize = new System.Drawing.Size(490, 650);
             this.Name = "frmPrincipal";
             this.Text = "Formulário";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);

@@ -22,7 +22,7 @@ namespace Novo_Colaborador
             InitializeComponent();
         }
         
-        private Color backgroundColor = Color.FromArgb(0xE7, 0xFE, 0xFB);
+        public Color backgroundColor = Color.FromArgb(0xE7, 0xFE, 0xFB);
 
         
         //Variaveis
@@ -149,7 +149,8 @@ namespace Novo_Colaborador
 
         private void btnProc_Click(object sender, EventArgs e)
         {
-
+            FrmCadastrados frm = new FrmCadastrados();
+            frm.ShowDialog();
         }
 
         private void rbRS_CheckedChanged(object sender, EventArgs e)

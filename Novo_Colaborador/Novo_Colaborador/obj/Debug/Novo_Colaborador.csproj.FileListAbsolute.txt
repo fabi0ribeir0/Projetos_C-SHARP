@@ -16,3 +16,4 @@ C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colabora
 C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\bin\Debug\System.Buffers.dll
 C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\bin\Debug\MySql.Data.xml
 C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.csproj.CopyComplete
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\Novo_Colaborador\Novo_Colaborador\obj\Debug\Novo_Colaborador.FrmCadastrados.resources
