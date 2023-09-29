@@ -46,8 +46,10 @@
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Location = new System.Drawing.Point(2, 161);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(720, 438);
+            this.grid.ReadOnly = true;
+            this.grid.Size = new System.Drawing.Size(753, 438);
             this.grid.TabIndex = 0;
+            this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             this.grid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grid_CellFormatting);
             // 
             // btnBuscar
@@ -99,13 +101,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 611);
+            this.ClientSize = new System.Drawing.Size(754, 611);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.txtBusca);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.grid);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(770, 650);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(770, 650);
             this.Name = "FrmCadastrados";
             this.Text = "Registro de solicitações";
             this.Load += new System.EventHandler(this.FrmCadastrados_Load);

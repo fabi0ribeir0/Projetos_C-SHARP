@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Novo_Colaborador", "Novo_Colaborador\Novo_Colaborador.csproj", "{6F862E20-376D-4C10-9581-4191A5BDB1FC}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Contrarados MW", "setup\Contrarados MW\Contrarados MW.vdproj", "{FB002735-EAD7-4E0A-A89D-105EEF9CB2AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{6F862E20-376D-4C10-9581-4191A5BDB1FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F862E20-376D-4C10-9581-4191A5BDB1FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F862E20-376D-4C10-9581-4191A5BDB1FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB002735-EAD7-4E0A-A89D-105EEF9CB2AC}.Debug|Any CPU.ActiveCfg = Debug
+		{FB002735-EAD7-4E0A-A89D-105EEF9CB2AC}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,7 +23,9 @@ namespace Novo_Colaborador
         {
             frmPrincipal frm = new frmPrincipal();
             BackColor = frm.backgroundColor;
+            grid.BackgroundColor = frm.backgroundColor;
             ListarGD();
+            grid.CellClick += grid_CellClick;
         }
 
         Conexao conect = new Conexao();
@@ -136,6 +138,19 @@ namespace Novo_Colaborador
                     bs.Filter = "Nome LIKE '%" + textoBusca + "%'";
                     grid.DataSource = bs;
                 }
+            }
+        }
+
+        private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verifica se uma célula válida foi clicada (não o cabeçalho da coluna)
+            if (e.RowIndex >= 0)
+            {
+                // Seleciona a linha inteira
+                grid.Rows[e.RowIndex].Selected = true;
+
+                // Faça algo com os dados da linha, se necessário
+                // Por exemplo, você pode exibir os dados em outro lugar ou realizar alguma ação
             }
         }
     }

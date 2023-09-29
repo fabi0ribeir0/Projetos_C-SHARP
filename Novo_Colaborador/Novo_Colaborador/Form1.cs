@@ -284,10 +284,10 @@ namespace Novo_Colaborador
                 // Criar uma mensagem de email
                 MailMessage mensagem = new MailMessage();
                 mensagem.From = new MailAddress("crm@medicalway.com.br");
-                mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do destinatário
-                //mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do segundo destinatário
-                //mensagem.CC.Add("rh@medicalway.com.br"); //Em cópia
-                //mensagem.CC.Add("recepcao@medicalway.com.br"); //Em cópia
+                mensagem.To.Add("ti@medicalway.com.br"); // Endereço de email do destinatário
+                mensagem.To.Add("vanessa@medicalway.com.br"); // Endereço de email do segundo destinatário
+                mensagem.CC.Add("rh@medicalway.com.br"); //Em cópia
+                mensagem.CC.Add("recepcao@medicalway.com.br"); //Em cópia
 
 
                 mensagem.Subject = $"Novo colaborador - {txtNome.Text}"; // Assunto do email
