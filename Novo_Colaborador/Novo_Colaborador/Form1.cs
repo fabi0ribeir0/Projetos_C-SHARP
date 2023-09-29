@@ -31,6 +31,7 @@ namespace Novo_Colaborador
         private string[] itens;
         private string comprimento;
         private int estadoDB;
+        private int stdCheck = 0;
         private int Dia, Mes, Ano;
         Conexao conect = new Conexao();
         string sql;
@@ -47,7 +48,9 @@ namespace Novo_Colaborador
             chbChip.Checked = false;
             chbNote.Checked = false;
             chbTela.Checked = false;
-            rbPR.Checked = true;
+            rbPR.Checked = false;
+            rbSC.Checked = false;
+            rbRS.Checked = false;
         }
 
         static string RemoverAcentos(string mail)
@@ -123,6 +126,7 @@ namespace Novo_Colaborador
             {
                 estado = rbSC.Text;
                 estadoDB = 2;
+                stdCheck = 1;
             }
         }
 
@@ -132,6 +136,16 @@ namespace Novo_Colaborador
             {
                 estado = rbPR.Text;
                 estadoDB = 1;
+                stdCheck = 1;
+            }
+        }
+        private void rbRS_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbRS.Checked)
+            {
+                estado = rbRS.Text;
+                estadoDB = 3;
+                stdCheck = 1;
             }
         }
 
@@ -153,23 +167,22 @@ namespace Novo_Colaborador
             frm.ShowDialog();
         }
 
-        private void rbRS_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbRS.Checked)
-            {
-                estado = rbRS.Text;
-                estadoDB = 3;
-            }
-        }
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
+            //Verifica se os campos estão vazios
             if (String.IsNullOrEmpty(txtNome.Text) || String.IsNullOrEmpty(txtFuncao.Text) || String.IsNullOrEmpty(txtSolicitado.Text))
             {
                 MessageBox.Show("Porfavor preencha os campos");
                 return;
             }            
-            
+            //Verifica se não foi selecionado o estado
+            if (stdCheck == 0)
+            {
+                MessageBox.Show("Selecione o estado a qual pertence novo colaborador");
+                return;
+            }
+
             DateTime dataSelecionada = dateTimePicker1.Value;
 
             Dia = dataSelecionada.Day;
@@ -259,61 +272,61 @@ namespace Novo_Colaborador
             cmd.ExecuteNonQuery();
             conect.FecharConexao();
 
-            //try
-            //{
-            //    // Configurar o cliente de email SMTP
-            //    SmtpClient smtpClient = new SmtpClient("smtp.office365.com");
-            //    smtpClient.Port = 587;
-            //    smtpClient.Credentials = new System.Net.NetworkCredential("crm@medicalway.com.br", "UNS@mw1315");
-            //    smtpClient.EnableSsl = true;
+            try
+            {
+                // Configurar o cliente de email SMTP
+                SmtpClient smtpClient = new SmtpClient("smtp.office365.com");
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new System.Net.NetworkCredential("crm@medicalway.com.br", "UNS@mw1315");
+                smtpClient.EnableSsl = true;
 
-            //    // Criar uma mensagem de email
-            //    MailMessage mensagem = new MailMessage();
-            //    mensagem.From = new MailAddress("crm@medicalway.com.br");
-            //    mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do destinatário
-            //    //mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do segundo destinatário
-            //    //mensagem.CC.Add("rh@medicalway.com.br"); //Em cópia
-            //    //mensagem.CC.Add("recepcao@medicalway.com.br"); //Em cópia
+                // Criar uma mensagem de email
+                MailMessage mensagem = new MailMessage();
+                mensagem.From = new MailAddress("crm@medicalway.com.br");
+                mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do destinatário
+                //mensagem.To.Add("fabio@medicalway.com.br"); // Endereço de email do segundo destinatário
+                //mensagem.CC.Add("rh@medicalway.com.br"); //Em cópia
+                //mensagem.CC.Add("recepcao@medicalway.com.br"); //Em cópia
 
 
-            //    mensagem.Subject = $"Novo colaborador - {txtNome.Text}"; // Assunto do email
-            //    mensagem.IsBodyHtml = true; // Definir a mensagem como HTML
-            //    mensagem.Body = $@"
-            //        <html>
-            //        <body <P style=""font-family: 'Arial';"">>
-            //            <P><strong style=""font-size: 14px;"">{comprimento}</strong></P>
-            //            <p>TI favor ciar acessos para novo colaborador</p>
-            //            <p>Início: dia <strong style=""font-size: 16px;"">{Dia}</strong> de <strong>{Mes}</strong> de <strong>{Ano}</strong></p>
-            //            <p>Nome: <strong style=""font-size: 16px;"">{txtNome.Text}</strong></p>
-            //            <p>Função: <strong style=""font-size: 16px;"">{txtFuncao.Text}</strong></p>
-            //            <p>Estado: <strong style=""font-size: 16px;"">{estado}</strong></p>
-            //            <p>Sugestão de e-mail: <strong style=""font-size: 16px;"">{txtMail.Text}</strong></p>
-            //            <p>{equipamentos}</p>
-            //            <p>Att</p>
-            //            <p>{txtSolicitado.Text}</p>
-            //        </body>
-            //        </html>";
+                mensagem.Subject = $"Novo colaborador - {txtNome.Text}"; // Assunto do email
+                mensagem.IsBodyHtml = true; // Definir a mensagem como HTML
+                mensagem.Body = $@"
+                    <html>
+                    <body <P style=""font-family: 'Arial';"">>
+                        <P><strong style=""font-size: 14px;"">{comprimento}</strong></P>
+                        <p>TI favor ciar acessos para novo colaborador</p>
+                        <p>Início: dia <strong style=""font-size: 16px;"">{Dia}</strong> de <strong>{Mes}</strong> de <strong>{Ano}</strong></p>
+                        <p>Nome: <strong style=""font-size: 16px;"">{txtNome.Text}</strong></p>
+                        <p>Função: <strong style=""font-size: 16px;"">{txtFuncao.Text}</strong></p>
+                        <p>Estado: <strong style=""font-size: 16px;"">{estado}</strong></p>
+                        <p>Sugestão de e-mail: <strong style=""font-size: 16px;"">{txtMail.Text}</strong></p>
+                        <p>{equipamentos}</p>
+                        <p>Att</p>
+                        <p>{txtSolicitado.Text}</p>
+                    </body>
+                    </html>";
 
-            //    // Anexar arquivos, se necessário
-            //    // mensagem.Attachments.Add(new Attachment("caminho/do/arquivo.pdf"));
+                // Anexar arquivos, se necessário
+                // mensagem.Attachments.Add(new Attachment("caminho/do/arquivo.pdf"));
 
-            //    // Enviar o email
-            //    smtpClient.Send(mensagem);
+                // Enviar o email
+                smtpClient.Send(mensagem);
 
-            //    MessageBox.Show("Email enviado com sucesso!");
+                MessageBox.Show("Email enviado com sucesso!");
 
-            //    DialogResult resposta = MessageBox.Show("Solicitar outro colaborador?", "Pergunta", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                DialogResult resposta = MessageBox.Show("Solicitar outro colaborador?", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            //    if (resposta == DialogResult.Yes)
-            //    {
-            //        limpar();
-            //    }
-            //    else this.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Ocorreu um erro ao enviar o email: " + ex.Message);
-            //}
+                if (resposta == DialogResult.Yes)
+                {
+                    limpar();
+                }
+                else this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao enviar o email: " + ex.Message);
+            }
         }
     }
 }

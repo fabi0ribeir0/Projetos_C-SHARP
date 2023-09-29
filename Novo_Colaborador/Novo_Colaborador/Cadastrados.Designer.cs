@@ -106,7 +106,7 @@
             this.Controls.Add(this.grid);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmCadastrados";
-            this.Text = "Cadastrados";
+            this.Text = "Registro de solicitações";
             this.Load += new System.EventHandler(this.FrmCadastrados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
