@@ -51,6 +51,7 @@ namespace Novo_Colaborador
             rbPR.Checked = false;
             rbSC.Checked = false;
             rbRS.Checked = false;
+            stdCheck = 0;
         }
 
         static string RemoverAcentos(string mail)

@@ -43,6 +43,8 @@ namespace Novo_Colaborador
             // Oculta a coluna de índice 0 (ID)
             grid.Columns[0].Visible = false;
 
+            grid.RowHeadersWidth = 15;
+
             grid.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             grid.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             grid.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -114,6 +116,27 @@ namespace Novo_Colaborador
         {
             txtBusca.Clear();
             ListarGD();
+        }
+
+        private void txtBusca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string textoBusca = txtBusca.Text.Trim(); // Obtém o texto inserido no TextBox
+                if (string.IsNullOrEmpty(textoBusca))
+                {
+                    // Se o campo de busca estiver vazio, exiba todos os registros
+                    ListarGD();
+                }
+                else
+                {
+                    // Filtra a DataGridView com base no texto de busca (no exemplo, filtramos pela coluna "Nome")
+                    BindingSource bs = new BindingSource();
+                    bs.DataSource = grid.DataSource;
+                    bs.Filter = "Nome LIKE '%" + textoBusca + "%'";
+                    grid.DataSource = bs;
+                }
+            }
         }
     }
 }
