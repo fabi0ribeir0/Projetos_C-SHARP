@@ -20,19 +20,8 @@ namespace ProjetoRH
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            ControlButon.Location = new Point(1164, 27);
-            txtRG.MaxLength = 
+            ControlButon.Location = new Point(1164, 27);            
         }
 
-        private void txtRG_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Apenas numeros
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
-            {
-                // Ignora caracteres que não numero
-
-                e.Handled = true;
-            }
-        }
     }
 }
