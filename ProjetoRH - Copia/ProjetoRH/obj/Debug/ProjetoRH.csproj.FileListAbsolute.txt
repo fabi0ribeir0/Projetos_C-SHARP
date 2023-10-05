@@ -1,0 +1,13 @@
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\ProjetoRH\ProjetoRH\bin\Debug\ProjetoRH.exe.config
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\ProjetoRH\ProjetoRH\bin\Debug\ProjetoRH.exe
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\ProjetoRH\ProjetoRH\bin\Debug\ProjetoRH.pdb
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\ProjetoRH\ProjetoRH\bin\Debug\MetroSet UI.dll
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\ProjetoRH\ProjetoRH\obj\Debug\ProjetoRH.csproj.AssemblyReference.cache
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\ProjetoRH\ProjetoRH\obj\Debug\ProjetoRH.csproj.SuggestedBindingRedirects.cache
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\ProjetoRH\ProjetoRH\obj\Debug\ProjetoRH.FrmPrincipal.resources
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\ProjetoRH\ProjetoRH\obj\Debug\ProjetoRH.Properties.Resources.resources
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\ProjetoRH\ProjetoRH\obj\Debug\ProjetoRH.csproj.GenerateResource.cache
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\ProjetoRH\ProjetoRH\obj\Debug\ProjetoRH.csproj.CoreCompileInputs.cache
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\ProjetoRH\ProjetoRH\obj\Debug\ProjetoRH.csproj.CopyComplete
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\ProjetoRH\ProjetoRH\obj\Debug\ProjetoRH.exe
+C:\Users\Fabio\Documents\Estudos\Projetos_C-SHARP\ProjetoRH\ProjetoRH\obj\Debug\ProjetoRH.pdb
