@@ -294,7 +294,7 @@ namespace Novo_Colaborador
                 mensagem.IsBodyHtml = true; // Definir a mensagem como HTML
                 mensagem.Body = $@"
                     <html>
-                    <body <P style=""font-family: 'Arial';"">>
+                    <body style=""font-family: 'Arial';"">
                         <P><strong style=""font-size: 14px;"">{comprimento}</strong></P>
                         <p>TI favor ciar acessos para novo colaborador</p>
                         <p>Início: dia <strong style=""font-size: 16px;"">{Dia}</strong> de <strong>{Mes}</strong> de <strong>{Ano}</strong></p>
